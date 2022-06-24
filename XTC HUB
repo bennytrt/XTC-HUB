@@ -1,62 +1,57 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("XTC HUB", "Sentinel")
+local Window = Library.CreateLib("XTC HUB", "Synapse")
+    -- MAIN
+    local Main = Window:NewTab("Main")
+    local MainSection = Main:NewSection("Main")
 
---MAIN
-local Main = Window:NewTab("Main")
-local MainSection = Main:NewSection("Main")
+
+    MainSection:NewButton("Back/Front Flip", "Makes you do gymnastics", function()
+        loadstring(game:HttpGet('https://pastebin.com/raw/7wDcPtLk'))()
+    end)
+
+    MainSection:NewToggle("Super-Human", "go fast and jump high", function(state)
+        if state then
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 120
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = 120
+        else
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+        end
+    end)
+
+    MainSection:NewButton("Infinite Yield", "FE Admin Commands", function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+    end)
 
 
-MainSection:NewButton("Infinite Yield", "Gives You Admin", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-end)
+    --LOCAL PLAYER
+    local Player = Window:NewTab("Player")
+    local PlayerSection = Player:NewSection("Player")
 
-MainSection:NewToggle("Super-Human", "Jump high And Be Sonic!", function(state)
-    if state then
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 120
-        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 120
-    else
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    PlayerSection:NewSlider("Walkspeed", "SPEED!!", 500, 16, function(s)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+    end)
+
+    PlayerSection:NewSlider("Jumppower", "JUMP HIGH!!", 350, 50, function(s)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+    end)
+
+    PlayerSection:NewButton("Reset WS/JP", "Resets to all defaults", function()
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
-    end
-end)
-
-MainSection:NewButton("[FE] invisible CHaracter", "Makes You Invisible", function()
-    loadstring(game:HttpGet('https://pastebin.com/raw/rsTwXz33'))()
-end)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    end)
 
 
---PLAYER
-local Player = Window:NewTab("LocalPlayer")
-local PlayerSection = Player:NewSection("Player")
+    --Other
+    local Other = Window:NewTab("Other")
+    local OtherSection = Other:NewSection("Other")
 
-PlayerSection:NewSlider("WalkSpeed", "Change Your Speed Manually", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
-end)
+    OtherSection:NewButton("Chat Spoofer", "Lets you chat for other people", function()
+        loadstring(game:HttpGet(('https://pastebin.com/raw/djBfk8Li'),true))()
+    end)
 
-PlayerSection:NewSlider("JumpPower", "Change Your Jump Power Manually", 500, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
-end)
+    OtherSection:NewButton("Bypassed Fly", "bird mode", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Nicuse/RobloxScripts/main/BypassedFly.lua"))() 
 
-PlayerSection:NewButton("ResetWS/JP", "Resets your Walkspeed/JumpPower ", function()
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
-end)
-
-
---other
-local Other = Window:NewTab("Other")
-local Othersection = Other:NewSection("Other")
-
-OtherSection:NewButton("[FE] Bypassed Chat", "Bypasses Chattags (means u can swear)  ", function()
-    loadstring(game:HttpGet('https://pastebin.com/raw/hTkxTCV3'))()
-end)
-
-OtherSection:NewButton("Chat Spoofer", "Lets U Chat As Other People For Example Roblox", function()
-    loadstring(game:HttpGet('https://pastebin.com/raw/djBfk8Li'))()
-end)
-
-OtherSection:NewButton("Bypassed Fly", "Birdo Mode", function()
-    loadstring(game:HttpGet('https://https://raw.githubusercontent.com/Nicuse/RobloxScripts/main/BypassedFly.lua'))()
-
-    Fly(true)
-end)
+        Fly(true)
+    end)
