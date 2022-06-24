@@ -45,7 +45,7 @@ end)
 
 --other
 local Other = Window:NewTab("Other")
-local Othersection = Player:NewSection("Other")
+local Othersection = Other:NewSection("Other")
 
 OtherSection:NewButton("[FE] Bypassed Chat", "Bypasses Chattags (means u can swear)  ", function()
     loadstring(game:HttpGet('https://pastebin.com/raw/hTkxTCV3'))()
